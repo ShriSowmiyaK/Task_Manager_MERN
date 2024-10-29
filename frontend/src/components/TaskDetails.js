@@ -7,7 +7,7 @@ const TaskDetails = ({ task }) => {
   console.log(task);
   const { dispatch } = useTasksContext()
   const handleClick = async () => {
-    const response = await fetch('/task/' + task.taskname, {
+    const response = await fetch('https://task-manager-mern-62ye.onrender.com/task/' + task.taskname, {
       method: 'DELETE'
     })
     const json = await response.json()
