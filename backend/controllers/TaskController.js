@@ -31,18 +31,19 @@ const createTask = async (req, res) => {
         const oldtask = await Task.find({"taskname":taskname});
         console.log("oldtask : ",oldtask)
         let task;
-     //   const res = await oldtask.toArray()
-     //   console.log(res)
         if(oldtask.length == 0)
         {
 
          task = await Task.create({ taskname, duedate, priority });
+
         }
         else
         {
-            task = await Task.updateOne({"taskname":taskname},{$set :{"duedate" : duedate,"priority":priority}})
+            task = await Task.findOneAndUpdate({"taskname":taskname},{$set :{"duedate" : duedate,"priority":priority}}, { new: true } )
+ 
         }
-        console.log(taskname, duedate, priority);
+        
+        console.log(task);
         res.status(200).json(task);
     
 }

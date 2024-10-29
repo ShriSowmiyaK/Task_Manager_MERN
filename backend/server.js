@@ -2,7 +2,7 @@ require('dotenv').config()
 const ex = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const { createTask,getTask,deleteTask } = require('./controllers/TaskController');
+const { createTask, getTask, deleteTask } = require('./controllers/TaskController');
 
 const port = 4000;
 const app = ex();
@@ -17,8 +17,8 @@ app.use((req, res, next) => {
 
 //routes
 app.post('/task', createTask);
-app.get('/task',getTask)
-app.delete('/task/:taskname',deleteTask)
+app.get('/task', getTask)
+app.delete('/task/:taskname', deleteTask)
 
 mongoose.connect(process.env.MONGOURL)
   .then(() => {
