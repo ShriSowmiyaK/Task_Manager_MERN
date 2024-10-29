@@ -8,7 +8,7 @@ const Home = () => {
     const { tasks, dispatch } = useTasksContext()
     useEffect(() => {
         const fetchTasks = async () => {
-            const response = await fetch('/task')
+            const response = await fetch('https://task-manager-mern-62ye.onrender.com/task')
             const json = await response.json()
             console.log(json); // Check if the response is HTML or JSON
             if (response.ok) {
