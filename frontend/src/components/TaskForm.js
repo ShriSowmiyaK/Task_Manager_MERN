@@ -24,7 +24,7 @@ const TaskForm = () => {
 
     const task = { taskname, duedate, priority }
 
-    const response = await fetch('/task', {
+    const response = await fetch('https://task-manager-mern-62ye.onrender.com/task', {
       method: 'POST',
       body: JSON.stringify(task),
       headers: {
